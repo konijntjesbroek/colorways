@@ -8,13 +8,25 @@
 #   this will print out the variables in the current color scheme. If no scheme
 #   it will create a default from the dircolor db.
 #
+function get_color (){
+	local -n result=$1 
+	read -p "Input a color hexmap (RR:GG:BB) q to quit: "  result
+}
 
+function split_color (){
+	local RGB=$1
+	local c=$2
+	local val=$(echo "obase=10; ibase=16; `echo ${RGB^^}|cut -d: -f${c}`" | bc)
+	echo ${val}
+}
 
-echo -n "Input a color hexmap (RR:GG:BB): "
-read RGB
-red=$(echo "obase=10; ibase=16;`echo ${RGB^^}|cut -d: -f1`" | bc)
-green=$(echo "obase=10; ibase=16;`echo ${RGB^^}|cut -d: -f2`" | bc)
-blue=$(echo "obase=10; ibase=16;`echo ${RGB^^}|cut -d: -f3`" | bc)
-echo $red $green $blue
+get_color RGB
+while [ $RGB != 'q' ]; do
+	red=$(split_color $RGB 1)
+	green=$(split_color $RGB 2)
+	blue=$(split_color $RGB 3)
 
-echo -e "[38;2;${red};${green};${blue}mTESTING[0m"
+	echo $red $green $blue
+	echo -e "[38;2;${red};${green};${blue}mTESTING[0m"
+	get_color RGB
+done
