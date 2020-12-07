@@ -1,5 +1,5 @@
 #!/bin/bash
-# colorways.sh
+# karat.sh
 #
 # Author: Arlo Gittings
 # Created: 2020-12-05
