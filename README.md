@@ -1,4 +1,4 @@
-colorways.sh
+karat - Karat Arlo's Really Aw[esome|kward] Themer 
 
 Author: Arlo Gittings
 Created: 2020-12-05
