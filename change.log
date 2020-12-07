@@ -1,3 +1,5 @@
 2020-12-06 0730 Built ability to convert from RR:GG:BB -> color escape sequence
-2020-12-06 2204 Add functions to get and split colormaps
+           2204 Add functions to get and split colormaps
                 Add while loop for continuous testing
+2020-12-07 0011 Renamed project to karat
+                Update documentation
